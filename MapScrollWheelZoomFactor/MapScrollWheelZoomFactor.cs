@@ -9,9 +9,9 @@ namespace MapScrollWheelZoomFactor
     //[NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
     internal class MapScrollWheelZoomFactor : BaseUnityPlugin
     {
-        public const string PluginGUID = "orax.mapscrollwheelzoomfactor";
-        public const string PluginName = "Map scroll wheel zoom factor";
-        public const string PluginVersion = "0.1.0";
+        public const string PluginGUID = "orax.MapScrollWheelZoomFactor";
+        public const string PluginName = "MapScrollWheelZoomFactor";
+        public const string PluginVersion = "0.1.1";
 
         internal static new ManualLogSource Log;
 
