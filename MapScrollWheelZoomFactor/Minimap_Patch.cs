@@ -41,7 +41,7 @@ public static class Minimap_Patch
             }
             else
             {
-                Jotunn.Logger.LogError("Unable to patch Minimap.UpdateMap().");
+                MapScrollWheelZoomFactor.Log.LogError("Unable to patch Minimap.UpdateMap(). Pattern not found.");
             }
 
             return cm.InstructionEnumeration();
