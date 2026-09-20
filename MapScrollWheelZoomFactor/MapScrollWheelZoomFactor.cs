@@ -23,7 +23,7 @@ namespace MapScrollWheelZoomFactor
         {
             Log = base.Logger;
 
-            ZoomFactor = Config.Bind<float>("General", "Zoom factor (game restart required)", 2f, "Adjust the speed at which you can zoom in and out of the map with the mouse scroll wheel. Game default: 2. Higher value = faster zoom in/out.");
+            ZoomFactor = Config.Bind<float>("General", "Zoom factor (game restart required)", 6f, "Adjust the speed at which you can zoom in and out of the map with the mouse scroll wheel. Game default: 2. Higher value = faster zoom in/out.");
 
             _hi = new Harmony(PluginGUID);
             _hi.PatchAll();
