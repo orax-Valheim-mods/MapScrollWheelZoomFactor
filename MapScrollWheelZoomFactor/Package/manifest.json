@@ -4,6 +4,6 @@
   "version_number": "0.1.1",
   "website_url": "https://github.com/orax-Valheim-mods/MapScrollWheelZoomFactor",
   "dependencies": [
-    "denikson-BepInExPack_Valheim-5.4.2350"
+    "denikson-BepInExPack_Valheim-5.4.2351"
   ]
 }
