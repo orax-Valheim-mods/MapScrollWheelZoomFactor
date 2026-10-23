@@ -1,7 +1,7 @@
-﻿using HarmonyLib;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
+using HarmonyLib;
 
 namespace MapScrollWheelZoomFactor;
 
@@ -11,9 +11,14 @@ public static class Minimap_Patch
     [HarmonyPatch(typeof(Minimap), nameof(Minimap.UpdateMap))]
     public static class UpdateMap_Patch
     {
-        private static readonly MethodInfo LargeZoomGetter = AccessTools.PropertyGetter(typeof(Minimap), nameof(Minimap.LargeZoom));
+        private static readonly MethodInfo LargeZoomGetter = AccessTools.PropertyGetter(
+            typeof(Minimap),
+            nameof(Minimap.LargeZoom)
+        );
 
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(
+            IEnumerable<CodeInstruction> instructions
+        )
         {
             /*
              * PATCH:
@@ -25,17 +30,22 @@ public static class Minimap_Patch
 
             CodeMatcher cm = new(instructions);
 
-            cm.MatchForward(true, // false = move at the start of the match, true = move at the end of the match
-              new CodeMatch(OpCodes.Ldloc_0),
-              new CodeMatch(OpCodes.Ldc_R4),
-              new CodeMatch(OpCodes.Ldc_R4),
-              new CodeMatch(OpCodes.Call),
-              new CodeMatch(OpCodes.Ldarg_0),
-              new CodeMatch(i => (i.opcode == OpCodes.Call || i.opcode == OpCodes.Callvirt) && (MethodInfo)i.operand == LargeZoomGetter),
-              new CodeMatch(OpCodes.Mul),
-              new CodeMatch(OpCodes.Ldc_R4),
-              new CodeMatch(OpCodes.Mul),
-              new CodeMatch(OpCodes.Stloc_0));
+            cm.MatchForward(
+                true, // false = move at the start of the match, true = move at the end of the match
+                new CodeMatch(OpCodes.Ldloc_0),
+                new CodeMatch(OpCodes.Ldc_R4),
+                new CodeMatch(OpCodes.Ldc_R4),
+                new CodeMatch(OpCodes.Call),
+                new CodeMatch(OpCodes.Ldarg_0),
+                new CodeMatch(i =>
+                    (i.opcode == OpCodes.Call || i.opcode == OpCodes.Callvirt)
+                    && (MethodInfo)i.operand == LargeZoomGetter
+                ),
+                new CodeMatch(OpCodes.Mul),
+                new CodeMatch(OpCodes.Ldc_R4),
+                new CodeMatch(OpCodes.Mul),
+                new CodeMatch(OpCodes.Stloc_0)
+            );
 
             if (cm.IsValid)
             {
@@ -44,7 +54,9 @@ public static class Minimap_Patch
             }
             else
             {
-                MapScrollWheelZoomFactor.Log.LogError("Unable to patch Minimap.UpdateMap(). Pattern not found.");
+                MapScrollWheelZoomFactor.Log.LogError(
+                    "Unable to patch Minimap.UpdateMap(). Pattern not found."
+                );
             }
 
             return cm.InstructionEnumeration();
