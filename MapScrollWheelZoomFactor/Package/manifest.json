@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "MapScrollWheelZoomFactor",
   "description": "Adjust the speed at which you can zoom in and out of the map with the mouse scroll wheel.",
   "version_number": "0.1.1",
