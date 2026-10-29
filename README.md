@@ -22,6 +22,11 @@ Configuration file is located at: `Valheim\BepInEx\config\orax.mapscrollwheelzoo
 Game default: 2. Higher value = faster zoom in/out. A game restart is required after a configuration
 change.
 
+# Other mods
+
+- [Super Duper Mappy Zoomer](https://www.nexusmods.com/valheim/mods/3103)
+- [Super Duper Mappy Zoomer (fork)](https://thunderstore.io/c/valheim/p/Jeaudoir/SuperDuperMappyZoomer/)
+
 # Misc.
 
 Source code: https://github.com/orax-Valheim-mods/MapScrollWheelZoomFactor
