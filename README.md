@@ -29,4 +29,4 @@ change.
 
 # Misc.
 
-Source code: https://github.com/orax-Valheim-mods/MapScrollWheelZoomFactor
+GitHub repositories of my Valheim mods: https://github.com/orax-Valheim-mods/
